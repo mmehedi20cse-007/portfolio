@@ -31,6 +31,18 @@
   <body
     class="bg-primary text-gray-100 font-sans antialiased overflow-x-hidden"
   >
+    <!-- Scroll progress bar -->
+    <div
+      class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-primary"
+      aria-hidden="true"
+    >
+      <div
+        id="scroll-progress"
+        class="h-full bg-accent transition-all duration-150 ease-out"
+        style="width: 0%"
+      ></div>
+    </div>
+
     <!-- Navigation -->
     <nav
       id="navbar"
@@ -41,23 +53,45 @@
           <a href="#hero" class="text-lg font-medium text-accent font-mono"
             >&lt;Md_Mehedi_Hasan&gt;</a
           >
-          <div class="hidden md:flex items-center gap-8">
-            <a href="#hero" class="nav-link hover:text-accent transition-colors"
+          <div class="hidden md:flex items-center gap-4 lg:gap-6">
+            <a
+              href="#hero"
+              class="nav-link hover:text-accent transition-colors text-sm"
               >Home</a
             >
             <a
-              href="#skills"
-              class="nav-link hover:text-accent transition-colors"
-              >Skills</a
+              href="#about"
+              class="nav-link hover:text-accent transition-colors text-sm"
+              >About</a
+            >
+            <a
+              href="#education"
+              class="nav-link hover:text-accent transition-colors text-sm"
+              >Education</a
+            >
+            <a
+              href="#publications"
+              class="nav-link hover:text-accent transition-colors text-sm"
+              >Research</a
+            >
+            <a
+              href="#experience"
+              class="nav-link hover:text-accent transition-colors text-sm"
+              >Experience</a
+            >
+            <a
+              href="#certifications"
+              class="nav-link hover:text-accent transition-colors text-sm"
+              >Certifications</a
             >
             <a
               href="#projects"
-              class="nav-link hover:text-accent transition-colors"
+              class="nav-link hover:text-accent transition-colors text-sm"
               >Projects</a
             >
             <a
               href="#contact"
-              class="nav-link hover:text-accent transition-colors"
+              class="nav-link hover:text-accent transition-colors text-sm"
               >Contact</a
             >
             <div
@@ -113,7 +147,17 @@
           class="hidden md:hidden mt-4 pb-4 flex flex-col gap-3"
         >
           <a href="#hero" class="nav-link hover:text-accent">Home</a>
-          <a href="#skills" class="nav-link hover:text-accent">Skills</a>
+          <a href="#about" class="nav-link hover:text-accent">About</a>
+          <a href="#education" class="nav-link hover:text-accent">Education</a>
+          <a href="#publications" class="nav-link hover:text-accent"
+            >Research</a
+          >
+          <a href="#experience" class="nav-link hover:text-accent"
+            >Experience</a
+          >
+          <a href="#certifications" class="nav-link hover:text-accent"
+            >Certifications</a
+          >
           <a href="#projects" class="nav-link hover:text-accent">Projects</a>
           <a href="#contact" class="nav-link hover:text-accent">Contact</a>
         </div>
@@ -670,7 +714,7 @@
                 >Current</span
               >
             </div>
-            <ul class="mt-6 space-y-2 text-gray-400">
+            <ul class="scroll-reveal-list mt-6 space-y-2 text-gray-400">
               <li class="flex gap-2">
                 <span class="text-accent">•</span> Mentored 40+ undergraduate
                 students in practical programming sessions (C, C++, Data
@@ -699,7 +743,10 @@
     </section>
 
     <!-- Certifications Section -->
-    <section class="py-24 bg-surface/50 border-t border-white/5">
+    <section
+      id="certifications"
+      class="py-24 bg-surface/50 border-t border-white/5"
+    >
       <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-12">
         <p
           class="text-accent font-medium text-sm uppercase tracking-[0.2em] mb-2"
@@ -772,6 +819,26 @@
               data-cert-url="certificates/Badhon.jpeg"
               data-cert-type="image"
               data-cert-title="Voluntary Work – Badhon"
+            >
+              View Certificate →
+            </button>
+          </div>
+          <div class="p-6 rounded-xl bg-secondary/80 border border-white/5">
+            <h3 class="font-bold text-white">
+              Secretary General, Programming Club
+            </h3>
+            <p class="text-gray-500 text-sm">
+              CSE Department, University of Barishal
+            </p>
+            <p class="text-gray-400 text-sm mt-2">
+              Leadership role at the Programming Club
+            </p>
+            <button
+              type="button"
+              class="cert-view-btn mt-3 text-accent text-sm font-medium hover:underline inline-flex items-center gap-1"
+              data-cert-url="certificates/ProgrammingClub.pdf"
+              data-cert-type="pdf"
+              data-cert-title="Secretary General, Programming Club"
             >
               View Certificate →
             </button>
@@ -877,6 +944,7 @@
 
     <!-- Honors & Leadership -->
     <section
+      id="honors"
       class="relative py-24 bg-gradient-to-b from-surface/60 to-primary border-t border-white/5"
     >
       <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-12">
@@ -918,6 +986,18 @@
               class="text-accent text-sm mt-2 inline-block hover:underline"
               >Facebook Page →</a
             >
+          </div>
+          <div class="p-6 rounded-xl bg-secondary/80 border border-white/5">
+            <h3 class="font-bold text-white flex items-center gap-2">
+              <span class="text-2xl">📋</span> Secretary General, Programming
+              Club
+            </h3>
+            <p class="text-gray-500 text-sm">
+              CSE Department, University of Barishal
+            </p>
+            <p class="text-gray-400 mt-2">
+              Leadership role at the Programming Club of CSE Department
+            </p>
           </div>
           <div
             class="p-6 rounded-xl bg-secondary/80 border border-white/5 md:col-span-2"
@@ -1012,19 +1092,24 @@
       </div>
     </section>
 
-    <!-- Certificate Modal -->
+    <!-- Certificate Modal - Full Page -->
     <div
       id="cert-modal"
-      class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-sm hidden"
       aria-hidden="true"
     >
-      <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col">
-        <div class="flex items-center justify-between mb-4">
-          <h3 id="cert-modal-title" class="text-xl font-bold text-white"></h3>
+      <div
+        class="relative w-full h-full max-w-[100vw] max-h-[100vh] flex flex-col"
+      >
+        <div class="flex items-center justify-between mb-2 flex-shrink-0">
+          <h3
+            id="cert-modal-title"
+            class="text-lg sm:text-xl font-bold text-white truncate pr-4"
+          ></h3>
           <button
             type="button"
             id="cert-modal-close"
-            class="p-2 rounded-lg bg-surface text-gray-400 hover:text-white hover:bg-accent/20 transition-colors"
+            class="p-2 rounded-lg bg-surface text-gray-400 hover:text-white hover:bg-accent/20 transition-colors flex-shrink-0"
             aria-label="Close"
           >
             <svg
@@ -1043,18 +1128,18 @@
           </button>
         </div>
         <div
-          class="flex-1 overflow-auto rounded-xl bg-primary border border-white/10 p-2"
+          class="flex-1 min-h-0 overflow-auto rounded-xl bg-primary border border-white/10 p-2"
         >
           <img
             id="cert-modal-img"
             src=""
             alt="Certificate"
-            class="w-full h-auto rounded-lg hidden"
+            class="w-full h-auto min-h-[85vh] object-contain rounded-lg hidden"
           />
           <iframe
             id="cert-modal-iframe"
             src=""
-            class="w-full min-h-[70vh] rounded-lg hidden"
+            class="w-full h-[85vh] min-h-[500px] rounded-lg hidden border-0"
             title="Certificate"
           ></iframe>
         </div>

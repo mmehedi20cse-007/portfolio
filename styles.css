@@ -45,6 +45,133 @@ nav.scrolled {
   transform: translateY(0);
 }
 
+/* Scroll reveal - fade up */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll reveal - from left */
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scroll reveal - from right */
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scroll reveal - scale up */
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delay utilities for scroll reveal */
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+.reveal-delay-5 {
+  transition-delay: 0.5s;
+}
+.reveal-delay-6 {
+  transition-delay: 0.6s;
+}
+.reveal-delay-7 {
+  transition-delay: 0.7s;
+}
+.reveal-delay-8 {
+  transition-delay: 0.8s;
+}
+
+/* Section underline grow animation */
+.section-underline {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible ~ .section-underline,
+.section-underline.visible {
+  transform: scaleX(1);
+}
+
+/* Smooth reveal for lists */
+.scroll-reveal-list li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scroll-reveal-list.visible li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-list.visible li:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.scroll-reveal-list.visible li:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.scroll-reveal-list.visible li:nth-child(3) {
+  transition-delay: 0.15s;
+}
+.scroll-reveal-list.visible li:nth-child(4) {
+  transition-delay: 0.2s;
+}
+.scroll-reveal-list.visible li:nth-child(5) {
+  transition-delay: 0.25s;
+}
+.scroll-reveal-list.visible li:nth-child(6) {
+  transition-delay: 0.3s;
+}
+.scroll-reveal-list.visible li:nth-child(7) {
+  transition-delay: 0.35s;
+}
+.scroll-reveal-list.visible li:nth-child(8) {
+  transition-delay: 0.4s;
+}
+
 /* Project card hover effect - Enhanced */
 .project-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

@@ -21,16 +21,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Navbar scroll effect
   const navbar = document.getElementById("navbar");
 
+  // Scroll progress bar
+  const scrollProgress = document.getElementById("scroll-progress");
+  function updateScrollProgress() {
+    const winScroll =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const percent = height > 0 ? (winScroll / height) * 100 : 0;
+    if (scrollProgress) scrollProgress.style.width = percent + "%";
+  }
+
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");
     }
-
-    // Update active nav link
+    updateScrollProgress();
     updateActiveNavLink();
   });
+  updateScrollProgress();
 
   // Active navigation link on scroll
   function updateActiveNavLink() {
@@ -59,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Intersection Observer for fade-in animations
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
+    threshold: 0.08,
+    rootMargin: "0px 0px -80px 0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -74,9 +86,70 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add fade-in to sections
   document.querySelectorAll("section").forEach((section, index) => {
     section.classList.add("fade-in");
-    section.style.transitionDelay = `${index * 0.1}s`;
+    section.style.transitionDelay = `${index * 0.05}s`;
     observer.observe(section);
   });
+
+  // Scroll reveal for section headings (h2) and accent lines
+  document.querySelectorAll("section h2").forEach((el, i) => {
+    el.classList.add("scroll-reveal");
+    el.style.transitionDelay = `${0.15 + i * 0.05}s`;
+    observer.observe(el);
+  });
+
+  // Scroll reveal for cards and grid items with stagger
+  document.querySelectorAll("section .rounded-xl").forEach((el, i) => {
+    el.classList.add("scroll-reveal-scale");
+    el.style.transitionDelay = `${(i % 6) * 0.08}s`;
+    observer.observe(el);
+  });
+
+  // Scroll reveal for project cards (links with project-card class)
+  document.querySelectorAll(".project-card").forEach((el, i) => {
+    el.classList.add("scroll-reveal");
+    el.style.transitionDelay = `${(i % 4) * 0.1}s`;
+    observer.observe(el);
+  });
+
+  // Scroll reveal for skill cards with stagger
+  document.querySelectorAll(".skill-card").forEach((el, i) => {
+    el.classList.add("scroll-reveal-scale");
+    el.style.transitionDelay = `${(i % 12) * 0.04}s`;
+    observer.observe(el);
+  });
+
+  // Scroll reveal for skill filter buttons
+  document.querySelectorAll(".skill-filter").forEach((el, i) => {
+    el.classList.add("scroll-reveal");
+    el.style.transitionDelay = `${i * 0.06}s`;
+    observer.observe(el);
+  });
+
+  // Scroll reveal for list (experience bullets)
+  document.querySelectorAll(".scroll-reveal-list").forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Hero text stagger on load
+  setTimeout(() => {
+    const heroText = document.querySelector("#hero [class*='order-2']");
+    if (heroText) {
+      const items = heroText.querySelectorAll("p, h1, div");
+      items.forEach((el, i) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(16px)";
+        el.style.transition = `opacity 0.5s ease ${
+          0.2 + i * 0.07
+        }s, transform 0.5s ease ${0.2 + i * 0.07}s`;
+      });
+      requestAnimationFrame(() => {
+        items.forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        });
+      });
+    }
+  }, 100);
 
   // Skills filter functionality
   const skillFilters = document.querySelectorAll(".skill-filter");
