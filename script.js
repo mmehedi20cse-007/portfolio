@@ -102,6 +102,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Certificate modal
+  const certModal = document.getElementById("cert-modal");
+  const certModalImg = document.getElementById("cert-modal-img");
+  const certModalIframe = document.getElementById("cert-modal-iframe");
+  const certModalTitle = document.getElementById("cert-modal-title");
+  const certModalClose = document.getElementById("cert-modal-close");
+
+  document.querySelectorAll(".cert-view-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const url = btn.getAttribute("data-cert-url");
+      const type = btn.getAttribute("data-cert-type");
+      const title = btn.getAttribute("data-cert-title");
+
+      certModalTitle.textContent = title;
+      certModalImg.classList.add("hidden");
+      certModalImg.src = "";
+      certModalIframe.classList.add("hidden");
+      certModalIframe.src = "";
+
+      if (type === "image" || url?.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+        certModalImg.src = url;
+        certModalImg.classList.remove("hidden");
+        certModalImg.onerror = () => {
+          certModalImg.alt =
+            "Certificate image not found. Add image to certificates/ folder.";
+        };
+      } else if (type === "pdf" || url?.match(/\.pdf$/i)) {
+        certModalIframe.src = url;
+        certModalIframe.classList.remove("hidden");
+      }
+
+      certModal.classList.remove("hidden");
+      certModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeCertModal() {
+    certModal.classList.add("hidden");
+    certModal.setAttribute("aria-hidden", "true");
+    certModalImg.src = "";
+    certModalIframe.src = "";
+    document.body.style.overflow = "";
+  }
+
+  if (certModalClose) certModalClose.addEventListener("click", closeCertModal);
+  certModal?.addEventListener("click", (e) => {
+    if (e.target === certModal) closeCertModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !certModal?.classList.contains("hidden"))
+      closeCertModal();
+  });
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {

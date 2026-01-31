@@ -76,7 +76,7 @@
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/mehedihasan20"
+                href="https://www.linkedin.com/in/mehedi-hasan-835309311"
                 target="_blank"
                 class="text-gray-400 hover:text-accent transition-colors"
                 aria-label="LinkedIn"
@@ -719,6 +719,15 @@
               ICT Division, Government of Bangladesh | 15/10/2024
             </p>
             <p class="text-gray-400 text-sm mt-2">Project-based learning</p>
+            <button
+              type="button"
+              class="cert-view-btn mt-3 text-accent text-sm font-medium hover:underline inline-flex items-center gap-1"
+              data-cert-url="certificates/MobileComputing.pdf"
+              data-cert-type="pdf"
+              data-cert-title="Mobile Application Development"
+            >
+              View Certificate →
+            </button>
           </div>
           <div class="p-6 rounded-xl bg-secondary/80 border border-white/5">
             <h3 class="font-bold text-white">Data Science Math Skills</h3>
@@ -728,9 +737,44 @@
             <a
               href="https://coursera.org/share/1986303f2a83716776420d56c5a48a31"
               target="_blank"
-              class="text-accent text-sm mt-2 inline-block hover:underline"
+              class="text-accent text-sm mt-3 inline-block hover:underline"
               >View Certificate →</a
             >
+          </div>
+          <div class="p-6 rounded-xl bg-secondary/80 border border-white/5">
+            <h3 class="font-bold text-white">Work as Edge Assistant</h3>
+            <p class="text-gray-500 text-sm">
+              EDGE Project, ICT Division, Government of Bangladesh | 10/04/2024
+              – Present
+            </p>
+            <p class="text-gray-400 text-sm mt-2">
+              Lab Assistant mentoring 40+ students in programming and algorithms
+            </p>
+            <button
+              type="button"
+              class="cert-view-btn mt-3 text-accent text-sm font-medium hover:underline inline-flex items-center gap-1"
+              data-cert-url="certificates/Ladat.jpeg"
+              data-cert-type="image"
+              data-cert-title="Work as Edge Assistant"
+            >
+              View Certificate →
+            </button>
+          </div>
+          <div class="p-6 rounded-xl bg-secondary/80 border border-white/5">
+            <h3 class="font-bold text-white">Voluntary Work – Badhon</h3>
+            <p class="text-gray-500 text-sm">Blood Donation Organization</p>
+            <p class="text-gray-400 text-sm mt-2">
+              Works as Voluntary in Badhon, a blood donate organization
+            </p>
+            <button
+              type="button"
+              class="cert-view-btn mt-3 text-accent text-sm font-medium hover:underline inline-flex items-center gap-1"
+              data-cert-url="certificates/Badhon.jpeg"
+              data-cert-type="image"
+              data-cert-title="Voluntary Work – Badhon"
+            >
+              View Certificate →
+            </button>
           </div>
         </div>
       </div>
@@ -967,6 +1011,55 @@
         </p>
       </div>
     </section>
+
+    <!-- Certificate Modal -->
+    <div
+      id="cert-modal"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden"
+      aria-hidden="true"
+    >
+      <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <h3 id="cert-modal-title" class="text-xl font-bold text-white"></h3>
+          <button
+            type="button"
+            id="cert-modal-close"
+            class="p-2 rounded-lg bg-surface text-gray-400 hover:text-white hover:bg-accent/20 transition-colors"
+            aria-label="Close"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="flex-1 overflow-auto rounded-xl bg-primary border border-white/10 p-2"
+        >
+          <img
+            id="cert-modal-img"
+            src=""
+            alt="Certificate"
+            class="w-full h-auto rounded-lg hidden"
+          />
+          <iframe
+            id="cert-modal-iframe"
+            src=""
+            class="w-full min-h-[70vh] rounded-lg hidden"
+            title="Certificate"
+          ></iframe>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
