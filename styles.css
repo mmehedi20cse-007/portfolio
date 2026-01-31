@@ -1,0 +1,137 @@
+/* Custom styles for Md. Mehedi Hasan Portfolio - Professional & Attractive Design */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(8, 145, 178, 0.3);
+  color: #fff;
+}
+
+/* Navbar shadow on scroll */
+nav.scrolled {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Profile image - Round shape with professional glow */
+.profile-image-wrapper {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-image-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.profile-image-wrapper img {
+  transition: box-shadow 0.4s ease;
+}
+
+.profile-image-wrapper:hover img {
+  box-shadow: 0 25px 50px -12px rgba(8, 145, 178, 0.25);
+}
+
+/* Section fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project card hover effect - Enhanced */
+.project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 40px -15px rgba(8, 145, 178, 0.15);
+  transform: translateY(-2px);
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Nav link active state */
+.nav-link.active {
+  color: #0891b2;
+}
+
+/* Button hover lift effect */
+a[href].inline-flex:hover {
+  transform: translateY(-1px);
+}
+
+/* Skills Section */
+.skill-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(26, 34, 52, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.skill-card:hover {
+  border-color: rgba(8, 145, 178, 0.3);
+}
+
+.skill-card img {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.skill-card.hidden {
+  display: none !important;
+}
+
+.skill-filter.active {
+  background-color: #0891b2 !important;
+  color: white !important;
+  border-color: transparent !important;
+}
